@@ -32,7 +32,19 @@ const Login = () => {
     }
   };
 
-  const handleSignUp = async () => {};
+  const handleSignUp = async () => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "/signup",
+        { firstName, lastName, emailId, password },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res.data.data));
+      return navigate("/profile");
+    } catch (err) {
+      setError(err?.response?.data || "Something went wrong");
+    }
+  };
   return (
     <div className="flex justify-center my-10">
       <div className="card bg-base-300 w-96 shadow-xl">
