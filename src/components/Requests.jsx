@@ -17,7 +17,7 @@ const Requests = () => {
       );
       dispatch(removeRequest(_id));
     } catch (err) {
-      console.error(err); 
+      console.error(err);
     }
   };
 
@@ -36,10 +36,10 @@ const Requests = () => {
     fetchRequests();
   }, []);
 
-  //   if (!requests) return;
+  if (!requests) return;
 
-  //   if (requests.length === 0)
-  //     return <h1 className="flex justify-center my-10"> No Requests Found</h1>;
+  if (requests.length === 0)
+    return <h1 className="flex justify-center my-10"> No Requests Found</h1>;
 
   return (
     <div className="text-center my-10">
